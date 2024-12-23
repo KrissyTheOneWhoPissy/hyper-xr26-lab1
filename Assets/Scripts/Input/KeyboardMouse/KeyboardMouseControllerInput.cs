@@ -15,11 +15,13 @@ public class KeyboardMouseControllerInput : MonoBehaviour, IControllerInput
     {
         if (isLeftController)
         {
-            return Mouse.current.leftButton.isPressed;
-        } 
+            return Keyboard.current.qKey.isPressed || Mouse.current.leftButton.isPressed;
+        }
         else
         {
-            return Mouse.current.rightButton.isPressed;
+            return Keyboard.current.eKey.isPressed || Mouse.current.rightButton.isPressed;
         }
+        // I changed the code to use the the keyboard inputs for the mouse inputs, so that the particle system still works without a mouse input.
+        // It works similarly to the previous code, instead it adds the functionality of the "Q" and "E" keyboard presses
     }
 }
